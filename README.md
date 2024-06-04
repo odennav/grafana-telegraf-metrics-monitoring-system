@@ -2,7 +2,7 @@
 
 Grafana is an open-source platform for monitoring and observability, primarily used to visualize time series data. It allows users to create and share dynamic dashboards, providing powerful and flexible visual representations of data.
 
-Telegraf is the server agent for collecting, processing, aggregating and writing metrics to InfluxDB.
+Telegraf is the plugin-driven server agent for collecting, processing, aggregating and writing metrics to InfluxDB.
 
 Grafana supports various data sources such as Prometheus, Graphite and OpenTSDB. In this lab we'll use InfluxDB as our preferred data source.
 
