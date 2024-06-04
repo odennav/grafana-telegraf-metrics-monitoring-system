@@ -1,0 +1,68 @@
+- name: Setup of telegraf for remote hosts
+  tags:
+    - setup_telegraf_configurations
+
+
+  block:
+    - name: Create parent directories
+      ansible.builtin.file:
+        path: /tmp/influxdb
+        state: directory
+        mode: '0755'
+        owner: odennav
+        group: odennav
+      tags:
+        - create_telegraf_dir 
+
+
+    - name: Copy telegraf.sh script to remote server
+      ansible.builtin.copy:
+        src: /influxdb/influxdb_repo.sh
+        dest: /tmp/influxdb/
+        owner: odennav
+        group: odennav
+        mode: '0755'
+      tags:
+        - copy_influxdb_repo_script
+
+    - name: Change the working directory to /tmp/influxdb/ before executing the command
+      ansible.builtin.shell: ./influxdb_repo.sh 
+        args:
+        chdir: /tmp/influxdb/
+
+    - name: Install Telegraf from the repo
+      ansible.builtin.shell: sudo yum install -y telegraf
+
+    - name: Create a configuration file with default input and output plugins
+      ansible.builtin.shell: telegraf config > /etc/telegraf/telegraf.conf
+
+    - name: generate object config file from template
+      template:
+        src: /telegraf/telegraf.j2
+        dest: /etc/telegraf/telegraf.conf
+        owner: odennav
+        group: odennav
+        mode: 0644
+      notify: start_telegraf
+
+    - name: enable_telegraf
+      ansible.builtin.systemd_service:
+        name: telegraf.service
+        enabled: true
+
+    - name: restart_telegraf
+      ansible.builtin.systemd_service:
+        state: restarted
+        daemon_reload: true
+        name: telegraf.service
+
+    handlers:
+    - name: start_telegraf
+      ansible.builtin.systemd_service:
+        state: started
+        daemon_reload: true
+        name: telegraf.service
+
+
+
+

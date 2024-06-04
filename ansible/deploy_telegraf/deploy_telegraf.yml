@@ -1,0 +1,8 @@
+---
+
+- hosts: message_processors
+  become: true
+  roles:
+    - setup_telegraf
+
+
