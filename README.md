@@ -22,7 +22,7 @@ InfluxDB is used as a data source for Grafana due to its high performance and sc
 
 - Setup Telegraf
 
-- Setup Grafana
+- Install Grafana
 
 - Create Grafana Data Source
 
@@ -178,7 +178,7 @@ sudo wget https://download.influxdata.com/influxdb/releases/influxdb2-client-2.7
 
 Unpackage the downloaded binary
 ```bash
-tar xvzf ./influxdb2-client-2.7.5-linux-amd64.tar.gz
+tar -xvzf ./influxdb2-client-2.7.5-linux-amd64.tar.gz
 ```
 
  Place the unpackaged influx executable in system $PATH
@@ -322,9 +322,7 @@ influx query 'from(bucket: "telegraf")
 -----
 
 
-## Setup Grafana
-
-**Install Grafana**
+## Install Grafana
 
 To install Grafana from the RPM repository, complete the following steps:
 
