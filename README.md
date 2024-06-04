@@ -8,6 +8,9 @@ Grafana supports various data sources such as Prometheus, Graphite and OpenTSDB.
 
 InfluxDB is used as a data source for Grafana due to its high performance and scalability in handling large volumes of time-stamped data.
 
+![](https://github.com/odennav/grafana-telegraf-metrics-monitoring-system/blob/main/docs/Grafana-telegraf-influxdb.png)
+
+-----
 
 ## Getting Started
 
