@@ -434,7 +434,7 @@ We'll need to install and use ansible to ensure consisitent and efficient config
 
 **Install Ansible**
 
-To install ansibe without upgrading current python version, we'll make use of the yum packae manager
+To install ansibe without upgrading current python version, we'll make use of the yum package manager.
 
 ```bash
 sudo yum update
@@ -512,7 +512,7 @@ ansible all -m ping
 Provision other remote hosts with Vagrant and implement new user configuration.
 
 
-Use ansible playbook '/ansible/deploy_telegraf/setup_telegraf.yml'
+Use ansible playbook `/ansible/deploy_telegraf/setup_telegraf.yml`
 ```bash
 ansible-playbook -i inventory /grafana-telegraf-metrics-monitoring-system/ansible/deploy_telegraf/deploy_telegraf.yml -e @/grafana-telegraf-metrics-monitoring-system/ansible/ansible-vault/values.yml
 ```
