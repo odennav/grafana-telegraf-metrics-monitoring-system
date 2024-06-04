@@ -372,11 +372,13 @@ sudo systemctl status grafana-server
 
 ## Create Grafana Data Source
 
-Open a web browser and connect to http://192.168.10.1:3000. Log in with the username of `admin` and the password of `admin`
+Open a web browser and connect to `192.168.10.1:3000`.
+
+Log in with the username of `admin` and the password of `admin`
 
 Implement the following:
 
-- Click on the gear icon in the menu bar on the left. It will take you to the Configuration page for Grafana
+- Click on the :gear: icon in the menu bar on the left. It will take you to the Configuration page for Grafana
 
 - Click on the `Add data sources` button
 
@@ -390,7 +392,7 @@ Implement the following:
 
   Query Language ------> InfluxQL
 
-  URL -----------------> http://localhost:8086
+  URL -----------------> `http://localhost:8086`
 
   Access --------------> Server (default)
 
