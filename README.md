@@ -407,7 +407,7 @@ Now Grafana can access the metrics stored in InfluxDB.
 
 ## Import System Dashboard
 
-Hover over the plus sign in the menu on the left of your screen. It will expand into a menu when you hover over it.
+Hover over the **`+`** sign in the menu on the left of your screen. It will expand into a menu when you hover over it.
 
 From there, click on `Import`.
 
@@ -415,11 +415,13 @@ Implement the following:
 
 - In the `Grafana dashboard URL or id` field, enter `13095` and click the "Load" button next to it.
 
-An alternative is to import the JSON file for the dashboard.
+An alternative is to import a JSON file for the grafana dashboard.
 
-To upload click `Upload JSON File` and navigate to '/grafana-metrics-monitoring-system/grafana templates/13095_System` in this repo. 
+To upload click `Upload JSON File` and navigate to `/grafana-metrics-monitoring-system/grafana templates/13095_System` in this repo. 
 
-There are other templates available in the directory.
+Note the`IPMI` json template available in this repo. It's an awesome SNMP based dashboard to monitor Dell hosts via iDRAC.
+
+To use this dashboard you'll have to ensure `SNMPv1` is enabled in iDRAC and also enable the SNMP input plugin in `telegraf.conf` file as shown [here](https://grafana.com/grafana/dashboards/12106-idrac-host-stats/)
 
 To view more dashboards, check [Grafana Labs](https://grafana.com/grafana/dashboards/)
 
@@ -428,6 +430,7 @@ To view more dashboards, check [Grafana Labs](https://grafana.com/grafana/dashbo
 Now you should see a dashboard displaying system performance information for the grafana host.
 
 Ensure to save the imported dasboard.
+
 
 ----- 
 
@@ -470,9 +473,9 @@ ansible --version
 
 Ansible communicates with target remote servers using SSH and usually we generate RSA key pair and copy the public key to each remote server, instead we'll use username and password credentials of odennav user.
 
-This credentials are added to inventory host file but encrypted with ansible-vault
+This credentials are added to inventory host file but encrypted with ansible-vault.
 
-Ensure all IPv4 addresses and user variables of remote servers are in the inventory file as shown
+Ensure all IPv4 addresses and user variables of remote servers are in the inventory file.
 
 View `ansible-vault/values.yml` which has the secret password
 
@@ -524,7 +527,9 @@ ansible-playbook -i inventory /grafana-telegraf-metrics-monitoring-system/ansibl
 
 Return to your web browser and reload the dashboard page.
 
-At the top of your browser you should see a selector box for `Server`.  When you click on the word `Server` you will see the grafana VM, `cs1` as well as our newly added VMs.
+At the top of your browser you should see a selector box for `Server`.  
+
+When you click on the word `Server` you will see the grafana VM, `cs1` as well as our newly added VMs.
 
 -----
 
