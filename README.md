@@ -59,14 +59,14 @@ aws --version
 Clone this repository in the `build` machine
 ```bash
 cd /
-git clone git@github.com:odennav/elk-centralized-syslog-system.git
+git clone git@github.com:odennav/grafana-telegraf-metrics-monitoring-system.git
 ```
 
 Execute these Terraform commands sequentially in the `build` machine to create the AWS VPC(Virtual Private Cloud) and EC2 instances.
 
 Initializes terraform working directory
 ```bash
-cd elk-centralized-syslog-system/terraform
+cd grafana-telegraf-metrics-monitoring-system/terraform
 terraform init
 ```
 
